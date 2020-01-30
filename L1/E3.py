@@ -70,6 +70,7 @@ def twice(func):
         return func(inner)
     return innerfunc
 
+
 f = twice(add1)
 number = f(3)
 print(number)
@@ -77,8 +78,29 @@ print(number)
 print('E7')
 e7list = apply_all(1, [lambda x: 1+x, lambda x: 1+x, lambda x: 1+x])
 print(e7list)
-filtered = list(map(add1, [1, 2, 3, 4, 5, 6]))
+filtered = list(filter(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6, 7]))
 
 print(filtered)
 
 
+def make_function_lambda(u):
+    return lambda a: u+a
+
+f_lamdba = make_function_lambda(8)
+print(f_lamdba(5))
+
+
+def twice_lambda(lambda_func):
+    return lambda lambda_number : lambda_func(lambda_func(lambda_number))
+
+f_twice_lambda = twice_lambda(lambda x: x+1)
+print(f_twice_lambda(3))
+
+
+
+print('E8')
+
+listofE = ['Berserker rage', 'hej', 'hejhej', 'prut', 'Madeleine', 'Derek', 'Made', 'Patrick', 'Steffen', 'Douglas']
+sortEdlist = sorted(listofE, key=lambda x: x.count('e'))
+
+print(sortEdlist)
