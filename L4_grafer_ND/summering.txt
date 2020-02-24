@@ -1,0 +1,2 @@
+Et træ er en graf uden cirkler
+At lave en graf med cirkler til et minimum spanning tree, gøres ved at fjerne det hæjeste vægtende edge i cycle

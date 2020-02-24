@@ -1,0 +1,3 @@
+Opsummering af dynamisk programmering:
+Tager problemer det ellers kræver eksponentiel tid med rekursiv tid med polynomiel-tids algirithmer
+Algirithmer fra dynamisk programmering er ofte simple med få linjer med nested loops
