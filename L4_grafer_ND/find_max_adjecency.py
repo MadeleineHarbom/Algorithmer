@@ -1,4 +1,4 @@
-from L4_grafer_ND.eksempel.edge_list_graph import *
+from L4_grafer_ND.adjacency_list_graph import *
 
 graph = Graph()
 
@@ -20,18 +20,7 @@ e90 = graph.insert_edge(90, v66, v15)
 e7 = graph.insert_edge(7, v6, v123)
 e2 = graph.insert_edge(2, v66, v38)
 
-v_iter = graph.vertices()
 
-v_max = -9000
-
-
-for x in v_iter:
-    if x.element() > v_max:
-        v_max = x.element()
-
-print(v_max)
-
-#slet derfra og ned
 def find_max(adjacency_graph, first):
     visited = []
     visited.append(first)
@@ -46,6 +35,7 @@ def find_max(adjacency_graph, first):
 
     return maxi
 
+
 def find_max_helper(visited, node):
     edges = node.enpoints()
     for edge in edges:
@@ -56,3 +46,5 @@ def find_max_helper(visited, node):
     return None
 
 
+print('Max fundet med hjemmelavet recursiv metode')
+print(str(find_max(graph, v15)))

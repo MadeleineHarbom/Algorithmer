@@ -1,0 +1,26 @@
+En usorteret liste er hurtig ved insert men langsom ved søgning
+En sorteret liste er langsom til insertion, men hurtig til søgning
+
+For at gøre både insert og sørning hurtig, bruges heaps
+En heap er et slags træ. I en heap, er den højeste/laveste priorietering i toppen (anfængig af typen heap)
+Hvordan man søger og indsætter i et træ ved du godt, detgider jeg ikke skrive her :P
+
+
+Upheap:
+
+Downheap: Begynder i roden, bliver marginalt mere kompliceret end en upheap.
+
+Heap er en træstruktur med prioritering implementeret
+Det er et binært træ
+Den midste værdi skal altid være overst
+Træet skal være komplet, altås niveauerne skal være helt fyldt ud før man laver et nyt niveau
+Det sidste niveau skal fyldes op fra venstre til højre
+At ha træet i en liste gør det nemmere at finde "børnene", gennem at tage n*2+what? (position*2+1 og position*2+2)
+Den første possition skal være 1, da multiplication med 0 er lidt svært ;)
+
+
+Når man fjerner roden, tager man det sidste element og sætter i roden. Desefter sker sortering gennem downheap
+
+
+Hvis man skal fjerne en knude, der ikke er roden, er det smart at et element kender sin position i heapet. Fordi, så ved
+man hvor et element er gemt, udefra elementet selv, og behøver ikke s'ge gennem heapen

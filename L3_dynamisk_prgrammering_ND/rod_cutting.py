@@ -21,4 +21,4 @@ def cut_rod_dyn(prices, n):
     for i in range(1, n):
         print(i)
 
-cut_rod_dyn(prices, 7)
+cut_rod_rek(prices, 7)

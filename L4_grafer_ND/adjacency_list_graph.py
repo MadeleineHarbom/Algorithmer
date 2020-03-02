@@ -1,10 +1,12 @@
 #long document is long
 
+
 class Vertex:
-    edges = []
+
 
     def __init__(self, e):
         self._element = e
+        self.edges = []
 
     def __str__(self):
         return str(self._element)

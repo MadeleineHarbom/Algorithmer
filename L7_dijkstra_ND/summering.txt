@@ -1,0 +1,24 @@
+Dijksta bruges til at finde den korteste path udefra vægten af kanterne
+Dette kræver altså en vægtet graf
+
+Property 1: Hver delstig af den korteste stig, er i sig selv den korteste stig
+Property 2: Der er et træ af korteste stiger fra ven vetrix til alle andre.... todo tjek mig
+
+Assumptions:
+Grafen er knyttet sammen
+Alle kanter er undirected
+Vægten af kanterne er non-negative
+
+Dijksta udregner distancen fra given vetrex til alle andre for at finde den korteste stig
+Cloud er ... todo
+Initielle bebestning af vertex1 til vertex2 er initielt (før beregning) uendelig
+
+
+Step 1: Graf med startknude
+Step 2: Sæt disgtancen til alle knuder til uendeligt
+Step 3: Bevæger sig ud af og opdaterer distancen hvis den er lavere end det der tidligere var sat
+
+
+Rekursiv
+
+Key er den bedste afstand der blevet fundet (endnu)
