@@ -20,14 +20,17 @@ def find_laengste_delstreng(string1, string2):
     print(thearray1)
     print(thearray2)
     for i in range(0, len(thearray1)):
-        print("index: ")
-        print("i: " + str(i))
-        if i < len(thearray1):
-            for j in range(i, len(thearray1)):
-                print("j: " + str(j))
-                print(thearray1[i:j + 1])
-                for k in range(0, len(thearray2)):
-                    print(k) #TODO
+        if j < len(thearray2):
+            if i == j:
+                tempstring = ''
+                print('Match')
+                add = 0
+                while thearray1[i+add] == thearray2[j+add]:
+                    tempstring.append(thearray1[i+add])
+                if len(tempstring) > len(longeststring):
+                    longeststring = tempstring
+    return longeststring
+
 
 
 
