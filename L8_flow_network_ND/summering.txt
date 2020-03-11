@@ -1,0 +1,8 @@
+En edges vægt er en form at omkostning
+En edges kaåacitet er dens maximale belastning
+I et flow network kan to edges ikke være parallelle, altså findes ikke e(u,v) og e(v,u)
+Der antages at alle knude et i path fra start(s) til sink(t), hvis de findes, så ignoreres de. Derfor må grafen også være sammenhængende.
+For hver edge, skal flow være større eller lig med nul, og under eller lige med den kapacitet
+
+Ford-Fulkerson method:
+Augmented path: en stig fra s til det der har ekstra kapacitet

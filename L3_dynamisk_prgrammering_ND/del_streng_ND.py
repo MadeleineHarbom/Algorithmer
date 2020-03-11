@@ -36,4 +36,4 @@ def find_laengste_delstreng(string1, string2):
 
 
 
-print_alle_delstrenge("Made")
+find_laengste_delstreng('Made', 'Madeleine')

@@ -15,11 +15,14 @@ class Vertex:
 
 
 class Edge:
-    def __init__(self, e, v1, v2):
+    def __init__(self, e, startVertex, endVertex,capacity):
         self._element = e
-        self._endpoints = [v1, v2]
-        v1.edges.append(self)
-        v2.edges.append(self)
+        self._startpoint = startVertex
+        self._endpoint = endVertex
+        self._flow = 0
+        self._capacity = capacity
+        startVertex.edges.append(self)
+
 
     def __str__(self):
         return str(self._element)
@@ -27,8 +30,17 @@ class Edge:
     def element(self):
         return self._element
 
-    def endpoints(self):
-        return self._endpoints
+    def endpoint(self):
+        return self._endpoint
+
+    def startpoint(self):
+        return self._startpoint
+
+    def flow(self):
+        return self._flow
+
+    def capacity(self):
+        return self._capacity
 
 
 class Graph:
@@ -47,23 +59,21 @@ class Graph:
     # Removes the vertex v and all its incident edges
     # Input: Vertex; Output: nothing
     def remove_vertex(self, v):
-        for e in v.edges:
-            self.remove_edge(e)
-
+        for e in self._edges:
+            if e._startpoint == v or e._endpoint == v:
+                self.remove_edge(e)
     # Inserts and returns a new edge between the vertices v and w.
     # The element of the edge is o.
-    def insert_edge(self, o, v, w):
-        e = Edge(o, v, w)
-        v.edges.append(e)
-        w.edges.append(e)
+    def insert_edge(self, name, startVertex, endVertex, capacity):
+        e = Edge(name, startVertex, endVertex, capacity)
+        startVertex.edges.append(e)
         self._edges.append(e)
         return e
 
     # Removes the edge e.
     # Input: Edge; Output: nothing
     def remove_edge(self, e):
-        for v in e.endpoints():
-            v.edges.remove(e)
+        e.startpoint().edges.remove(e)
         self._edges.remove(e)
 
     # Returns the count of vertices in the graph.
@@ -91,38 +101,15 @@ class Graph:
     def degree(self, v):
         return len(v.edges)
 
-    # Returns an iterator on the vertices that are adjacent to v.
-    # Input: Vertex; Output: Iterator
-    def adjacent_vertices(self, v):
-        a = []
-        for e in v.edges:
-            a.append(e)
-        return a
 
-    # Returns an iterator on the edges that are incident to v.
-    # Input: Vertex; Output: Iterator
-    def incident_edges(self, v):
-        return v.edges
-
-    # Returns a list with the two vertices at the ends of the edge e.
-    # Input: Edge; Output: list with 2 vertices
-    def end_vertices(self, e):
-        return e.endpoints()
-
-    # Returns the vertex opposite v along the edge e.
-    # Input: Vertex, Edge; Output: Vertex
-    def opposite(self, v, e):
-        if e.endpoints()[0] == v:
-            return e.endpoints()[1]
-        else:
-            return e.endpoints()[0]
 
     # Returns whether the vertices v and w are adjacent.
     # Input: Vertex, Vertex; Output: boolean
     def are_adjacent(self, v, w):
         for e in v.edges:
-            if e in w.edges:
+            if e._endpoint() == w:
                 return True
-
-        return False
+        for f in w.edges:
+            if f._endpoint() == v:
+                return False
 
