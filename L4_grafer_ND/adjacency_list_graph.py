@@ -54,8 +54,6 @@ class Graph:
     # The element of the edge is o.
     def insert_edge(self, o, v, w):
         e = Edge(o, v, w)
-        v.edges.append(e)
-        w.edges.append(e)
         self._edges.append(e)
         return e
 

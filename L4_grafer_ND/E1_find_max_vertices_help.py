@@ -20,16 +20,24 @@ e90 = graph.insert_edge(90, v66, v15)
 e7 = graph.insert_edge(7, v6, v123)
 e2 = graph.insert_edge(2, v66, v38)
 
-v_iter = graph.vertices()
 
-v_max = -9000
+def find_max_travilal(graf):
+    v_iter = graf.vertices()
 
+    v_max = -9000
 
-for x in v_iter:
-    if x.element() > v_max:
-        v_max = x.element()
+    for x in v_iter:
+        if x.element() > v_max:
+            v_max = x.element()
 
-print(v_max)
+    return v_max
+
+#TODO spørg lærer
+#Efter at ha afholdt en lille think-tank for meget kloge mennesker <host host>
+#I spørgsmålet hvor du skal fidne alle noget i en edge list graf med en metode der tager grafen og ev en vertex som input
+#At finde alle knude udefra en anden knude giver for mig ikke mening i en edge list graf, da alt går ud fra edge
+#og knuderne ikke indholder andet end objektet de skal "bære"
+
 
 #slet derfra og ned
 def find_max(adjacency_graph, first):
@@ -56,3 +64,4 @@ def find_max_helper(visited, node):
     return None
 
 
+print(find_max(graph, v15))
