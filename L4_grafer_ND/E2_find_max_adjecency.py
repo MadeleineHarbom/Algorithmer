@@ -24,7 +24,7 @@ e2 = graph.insert_edge(2, v66, v38)
 
 def find_max(first):
     visited = []
-   # visited.append(first)
+
     populate_visited_recursive(visited, first)
     maxx = -90000
     for vev in visited:
