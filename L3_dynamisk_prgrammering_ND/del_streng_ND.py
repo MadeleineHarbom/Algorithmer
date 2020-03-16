@@ -1,5 +1,4 @@
 
-
 def print_alle_delstrenge(thestring):
     mylist = list(thestring)
     for i in range(0, len(mylist)):
