@@ -34,19 +34,21 @@ def find_laengeste_delstreng_opgave2_for_loops(string1, string2):
 
 def find_laengste_delstreng_opgave3_matrix(string1, string2):
     matrixx = create_matrix(len(string1) + 1, len(string2) + 1)
-    print(matrixx)
     for i in range(1, len(string1)):
         for j in range(1, len(string2)):
             if string1[i] == string2[j]:
                 matrixx[i][j] = matrixx[i-1][j-1] + 1
-    print(matrixx)
+    print_matrix(matrixx)
 
 def create_matrix(m, n):
     return [[0 for y in range(m)] for x in range(n)]
 
-#TODO print matrixen
+
 def print_matrix(matrixx):
-    return 0
+    for i in range(0, len(matrixx)):
+        print(matrixx[i])
+
+
 
 
 
