@@ -1,9 +1,14 @@
-from L4_grafer_ND.adjacency_list_graph import Vertex
+from L4_grafer_ND.adjacency_list_graph import *
 
 def create_matrix(m, n):
     return [[0 for y in range(m)] for x in range(n)]
 
+def print_matrix(matrixx):
+    for i in range(0, len(matrixx)):
+        print(matrixx[i])
+
 #14_3 draw and adjecency matrix represention of the udirected graf shown in figure 14.1
+print('14_3')
 nodes = [
 Vertex('Snoeyink'), #0
 Vertex('Goodrich'), #1
@@ -81,10 +86,32 @@ edgematrix[8][7] = 1
 edgematrix[1][8] = 1
 edgematrix[8][1] = 1
 
-#TODO print matrix
+print_matrix(edgematrix)
+
+#14_4 draw and adjecency list represention of the udirected graf shown in figure 14.1
+print('14_4')
+snoeyink = Vertex('Snoeyink'),
+goodrich = Vertex('Goodrich'),
+garg = Vertex('Garg'),
+goldwassser = Vertex('Goldwasser'),
+tollis = Vertex('Tollis'),
+vitter = Vertex('Vitter'),
+tarmassia = Vertex('Tarmassia'),
+preparata = Vertex('Preparata'),
+chiang = Vertex('Chiang')
+edgelist = {
+    (snoeyin, {}),
+    (goodrich, {}),
+    (garg, {})
+}
+
+
+#14_6 Suppose we represent a graph G having n vertices and m edges with the eddge list structure.
+# Why, in this case, does the insert_edge(u,v,x) in O(1) time while the remove_vertex method runs in O(m) time?
+
+#14_7 Gave psudo code for performing an insert_edge (u,v,x) using the adjecency matrix representation
 
 
 
-def create_matrix(m, n):
-    return [[0 for y in range(m)] for x in range(n)]
+
 
