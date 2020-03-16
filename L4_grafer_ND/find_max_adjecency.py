@@ -1,5 +1,7 @@
 from L4_grafer_ND.adjacency_list_graph import *
 
+
+
 graph = Graph()
 
 v15 = graph.insert_vertex(15)
