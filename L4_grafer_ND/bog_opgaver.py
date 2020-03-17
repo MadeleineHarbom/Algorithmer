@@ -99,17 +99,25 @@ vitter = Vertex('Vitter'),
 tarmassia = Vertex('Tarmassia'),
 preparata = Vertex('Preparata'),
 chiang = Vertex('Chiang')
-edgelist = {
-    (snoeyin, {}),
-    (goodrich, {}),
-    (garg, {})
-}
+edgelist = [
+    {'node': snoeyink, 'edges': [goodrich]},
+    {'node': goodrich, 'edges':[snoeyink, garg, goldwassser, tarmassia, tollis, vitter]},
+    {'node': garg,'edges': [goodrich,  tarmassia]},
+    {'node': goldwassser, 'edges': [goodrich, tarmassia]},
+    {'node': tollis, 'edges': [tarmassia, vitter]},
+    {'node': vitter, 'edges': [goodrich, tarmassia, preparata]},
+    {'node': tarmassia, 'edges': [garg, goldwassser, tarmassia, vitter, chiang]},
+    {'node': preparata, 'edges': [vitter, tarmassia, chiang]},
+    {'node': chiang, 'edges': [tarmassia, preparata, goodrich]}
+]
 
 
 #14_6 Suppose we represent a graph G having n vertices and m edges with the eddge list structure.
 # Why, in this case, does the insert_edge(u,v,x) in O(1) time while the remove_vertex method runs in O(m) time?
+#TODO
 
-#14_7 Gave psudo code for performing an insert_edge (u,v,x) using the adjecency matrix representation
+#14_7 Give psudo code for performing an insert_edge (u,v,x) using the adjecency matrix representation
+#TODO
 
 
 
