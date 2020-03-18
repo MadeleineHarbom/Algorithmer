@@ -1,4 +1,4 @@
-
+from L4_grafer_ND.adjacency_list_graph import Vertex
 mylist = ['M', 'a', 'd', 'e']
 
 i=0
@@ -21,3 +21,5 @@ for i in range(0, len(mylist)):
     for j in range(i, len(mylist)):
         templist.append(mylist[j])
     print(templist)
+
+mystuff = {Vertex(15): 'test'}

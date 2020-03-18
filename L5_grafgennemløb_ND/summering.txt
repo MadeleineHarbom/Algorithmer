@@ -1,0 +1,10 @@
+Discovery edge er en nyfunden adge, der leder til en ny vertex (kan også kaldes tree edge)
+Nontree edges leder til vetecies der allereden er discovered
+Nontree edges der er 'explored' leder til en 'ancestor' i en 'undirected' graf. Disse akldes back edge
+
+Back edge leder til en ancestor i DFS
+Forward edge ledet til en decendant i DFS
+Cross edge leder til en vertex det enten er ancestor eller desendant
+
+DFS kører O(E+V)
+

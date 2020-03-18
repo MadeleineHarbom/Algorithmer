@@ -10,8 +10,25 @@ def is_graph_connected(graph, vertex):
         return False
 
 
-def is_verticies_connected(vertex1, vertex2):
+def is_verticies_adjacent(vertex1, vertex2):
     for edge in vertex1.edges:
         if vertex1 in edge.endpoints() and vertex2 in edge.endpoints():
             return True
     return False
+
+def are_verticies_connected(graph, vertex1, vertex2):
+    visited = []
+    return are_verticies_connecter_helper(graph, vertex1, vertex2, visited)
+
+
+
+def are_verticies_connecter_helper(graph, vertex2, current, visited):
+
+    if current == vertex2:
+        return True
+    elif current in visited:
+        return False
+    else:
+        visited.append(current)
+        for edge in current.edges:
+            return are_verticies_connecter_helper(graph, vertex2, graph.opposite(current, edge), visited)
