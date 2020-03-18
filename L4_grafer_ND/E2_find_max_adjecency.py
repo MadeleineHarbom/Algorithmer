@@ -22,5 +22,8 @@ def populate_visited_recursive(visited, vector):
                 populate_visited_recursive(visited, vec)
 
 
+
+
+
 print('Max fundet med hjemmelavet recursiv metode')
 print(str(find_max(v15)))
