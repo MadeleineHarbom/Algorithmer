@@ -1,0 +1,52 @@
+Binært træ:
+Hver nmode han ha 0, 1 eller 2 børn
+Kun én stig til hver node
+Depth er distancen fra node til root
+I et balanceret træ er den størst dybde: 2^(n+1) -1
+
+
+Binært søgetræ:
+Sorteret binært tre, hvor venstre node altid er mindre end parent, or højre er større
+Binære søgetrær har nodes der sorteres efter parent-node. Insertion er O(log(n))
+Binære s'getræer kan blive ubalanceret, og så bliver insertion O(n)
+
+
+2,4-Tree:
+Nodes kan ha 2 eller 4 børn (undstager blad), dog ikke 0 eller 1
+Hver node kan ha 1-3 entries
+Antal børn = antallet entries + 1 (eller dens 0)
+
+Fjerne fra 2,4 -Tree
+Pas på at man ikke får en node uden entries
+1: Find den entry der skal fjernes ot erstæt den med den næste højeste entry
+2: Hvis en søskene har s
+#TODO forstæ her
+
+
+Splay Tree:
+Er ikke altid perfekt balanceret, og kan deteriorate"
+De mest brugte elementer kommer op mod toppen for hurtig adgang
+Worst case: Linær tid O(n)
+Average tid: O(log(n))
+
+Hvis man skal finde x:
+1. hvis x er til venstre af en højre child, eller til højre af en venstre child. Rotere ved parent (zig-zag)
+2. hvis x er til venstre af et ventre childre, eller til højre af et højre child. Rotere ved grandparent
+3. hvis x er child til root, rotere x op en gang (zig)
+
+zig: no grandparents
+zig-zig:
+zig-zag:
+
+AVL-Tree:
+Sikrer at træet et balanceret (self-balancing)
+Døbt efter dem der opfandt det
+Altid log(n) tid
+
+Zig-zig: En rotation rundt parent, hvor hvor dybden er størst
+Zig-zag:Dobbel rotation
+
+
+Red-black tree:
+Self balancing
+Search, insertion and deletions are all O(n)

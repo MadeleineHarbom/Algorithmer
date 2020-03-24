@@ -15,10 +15,3 @@ def cut_rod_rek(prices, n):
 cut_rod_rek(prices, 7)
 print(str(cut_rod_rek(prices,7)))
 
-def cut_rod_dyn(prices, n):
-    if n == 0:
-        return 0
-    for i in range(1, n):
-        print(i)
-
-cut_rod_rek(prices, 7)

@@ -1,12 +1,14 @@
 
 
-print('R14_14: A simple undirected graph if comlete if it contains an edge between every pair of distrinct vertices.'
+print('R14_14: A simple undirected graph if complete if it contains an edge between every pair of distrinct vertices.'
       'What does a depth-first search tree of a complete graph look like')
-#TODO
+print('Den kan jeg ikke beskrive her... Men BFS vil ikke være en god idea i en komplet graf... Men sådan har m,an ikke tit')
+
 
 print('R14_15: Recalling the definition of a complete graph from previous exercise, '
       'what does a breadth first search tree of a complete graph look like')
-#TODO
+print('Den tager de først børn, en ad gange, smider dem på tagen orden på en stack. Tager næste på stacken og dens børn osv osv osv osv osv')
+
 
 print('C14_38: Give a Python implementation of the remove_edge(e) method for out adjecency map implementaion of '
       'Section 14.2.5, making sure your implementation works for both directed and undirected graphs. '
