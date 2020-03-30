@@ -1,5 +1,5 @@
 ''' jmhajek '''
-from gtg09.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
+from L7_dijkstra_ND.eksempel.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
 
 a = AdaptableHeapPriorityQueue()
 print(a)

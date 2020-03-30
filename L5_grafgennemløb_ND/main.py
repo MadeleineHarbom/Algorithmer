@@ -1,4 +1,4 @@
-from L4_grafer_ND.usable_adjacency_list_grapf import graph, v15, v38, v123, unconnected_graph, v42
+from L4_grafer_ND.usable_adjacency_list_grapf_connected import graph, v15, v38, v123, unconnected_graph, v42
 from L5_grafgennemløb_ND.E1_dfs_recursion_iterator import dfs_iterator
 from L5_grafgennemløb_ND.E2_connections import is_graph_connected, is_verticies_adjacent, are_verticies_connected
 from L5_grafgennemløb_ND.E3_dfs_implementaion import dfs

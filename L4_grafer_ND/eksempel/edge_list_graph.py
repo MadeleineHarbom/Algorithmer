@@ -99,8 +99,8 @@ class Graph:
     def incident_edges(self, v):
         i = []
         for e in self._edges:
-            if v in e._endpoints:
-                i.append(e)
+            if self.are_adjacent(e._endpoints[0], e._endpoints[1]):
+                i.append(self.opposite(v, e))
         return iter(i)
     
     #Returns a list with the two vertices at the ends of the edge e. 
@@ -110,18 +110,22 @@ class Graph:
     
     #Returns the vertex opposite v along the edge e.
     #Input: Vertex, Edge; Output: Vertex
-    def opposite(self, v, e):
-        if e._endpoints[0] == v:
-            return e._endpoints[1]
+    def opposite(self, v: Vertex, e: Edge):
+        endpoints = e.endpoints()
+        if endpoints[0] == v:
+            return endpoints[1]
         else:
-            return e._endpoints[0]
+            return endpoints[0]
     
     #Returns whether the vertices v and w are adjacent.
     #Input: Vertex, Vertex; Output: boolean    
     def are_adjacent(self, v, w):
-        for e in self._edges:
-            if v in e._endpoints and w in e._endpoints:
+        edgesiterator = self.edges()
+        while next(edgesiterator):
+            endpoints = next(edgesiterator).endpoints()
+            if self.opposite(endpoints[0], endpoints[1]):
                 return True
+
         return False
         
     

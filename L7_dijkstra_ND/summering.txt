@@ -1,5 +1,7 @@
+Greedy-method: Løser problemer gennem at altid vælge den bedste mulighed
+
 Dijksta bruges til at finde den korteste path udefra vægten af kanterne
-Dette kræver altså en vægtet graf
+Dette kræver altså en vægtet graf (en grf hvor hver edge har en numerist label)
 
 Property 1: Hver delstig af den korteste stig, er i sig selv den korteste stig
 Property 2: Der er et træ af korteste stiger fra ven vetrix til alle andre.... todo tjek mig
@@ -9,7 +11,12 @@ Grafen er knyttet sammen
 Alle kanter er undirected
 Vægten af kanterne er non-negative
 
+
+
 Dijksta udregner distancen fra given vetrex til alle andre for at finde den korteste stig
+Bruger greedy method på en single-source. shortest path problem
+
+
 Cloud er ... todo
 Initielle bebestning af vertex1 til vertex2 er initielt (før beregning) uendelig
 
@@ -22,3 +29,7 @@ Step 3: Bevæger sig ud af og opdaterer distancen hvis den er lavere end det der
 Rekursiv
 
 Key er den bedste afstand der blevet fundet (endnu)
+
+
+Prim-Jarnik: skaber MST fra en enkelt root, ligner Dikstra
+Kruskal: bygger MST clusters gennem af kigge på edge i non-descending order
