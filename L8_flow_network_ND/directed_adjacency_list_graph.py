@@ -42,6 +42,8 @@ class Edge:
     def capacity(self):
         return self._capacity
 
+    def unused_capacity(self):
+        return self._capacity - self._flow
 
 class Graph:
 
