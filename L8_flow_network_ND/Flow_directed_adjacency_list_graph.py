@@ -1,11 +1,11 @@
 #long document is long
 
 
-class Vertex:
+class DiectedVertex:
 
     def __init__(self, e):
         self._element = e
-        self.edges = []
+        self._edges = []
 
     def __str__(self):
         return str(self._element)
@@ -13,8 +13,11 @@ class Vertex:
     def element(self):
         return self._element
 
+    def edges(self):
+        return self._edges
 
-class Edge:
+
+class FlowEdge:
     def __init__(self, e, startVertex, endVertex,capacity):
         self._element = e
         self._startpoint = startVertex
@@ -45,7 +48,10 @@ class Edge:
     def unused_capacity(self):
         return self._capacity - self._flow
 
-class Graph:
+    def add_flow(self, flow):
+        self._flow = self._flow + flow
+
+class FlowGraph:
 
     def __init__(self):
         self._vertices = []
@@ -54,7 +60,7 @@ class Graph:
     # Inserts and returns a new vertex containing the element e.
     # Input: V; Output: Vertex
     def insert_vertex(self, e):
-        v = Vertex(e)
+        v = DiectedVertex(e)
         self._vertices.append(v)
         return v
 
@@ -67,7 +73,7 @@ class Graph:
     # Inserts and returns a new edge between the vertices v and w.
     # The element of the edge is o.
     def insert_edge(self, name, startVertex, endVertex, capacity):
-        e = Edge(name, startVertex, endVertex, capacity)
+        e = FlowEdge(name, startVertex, endVertex, capacity)
         startVertex.edges.append(e)
         self._edges.append(e)
         return e

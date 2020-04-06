@@ -1,47 +1,36 @@
-from L8_flow_network_ND.directed_adjacency_list_graph import *
+import math
 
-class FlowGraph(Graph):
-    def __init__(self):
-        Graph.__init__(self)
+from L8_flow_network_ND.Flow_directed_adjacency_list_graph import *
+
+def ford_fulkerson(graph : FlowGraph, start : DiectedVertex, sink: DiectedVertex):
+    mini = math.inf
+    maxx = 0
+    triversed = [start] #for at tjekke for cirkler
+    for edge in start.edges():
+        ford_fulkerson_rekursive(graph, start, sink, edge, triversed, mini, maxx)
+        #ændre på alt
 
 
-    
-graph = Graph()
-ns = graph.insert_vertex('s')
-nv1 = graph.insert_vertex('v1')
-nv2 = graph.insert_vertex('v2')
-nv3 = graph.insert_vertex('v3')
-nv4 = graph.insert_vertex('v4')
-nt = graph.insert_vertex('t')
-graph.insert_edge('s - v1', ns, nv1, 16)
-graph.insert_edge('s-v2', ns, nv2, 13)
-graph.insert_edge('v1-v3', nv1, nv3, 12)
-graph.insert_edge('v2-v4', nv2, nv4, 14)
-graph.insert_edge('v2-v1', nv2, nv1, 4)
-graph.insert_edge('v3-v2', nv3, nv2, 9)
-graph.insert_edge('v4-v3', nv4, nv3, 7)
-graph.insert_edge('v3-t', nv3, nt, 20)
-graph.insert_edge('v4-t', nv4, nt, 4)
 
-print('Graph created, wooo!')
+def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, maxx):
+    endpoint = current_edge.endpoint()
+    if endpoint == start or endpoint in trivered:
+        print('back at start, abort abort abort')
+        return
+    else:
+        if current_edge.unused_capacity() > maxx:
+            maxx = current_edge.unused_capacity()
+        if current_edge.unused_capacity() < minn:
+            minn = current_edge.unused_capacity()
+    if endpoint == sink:
+        print('Yay, goooaaaal, go back :D')
+        #update
+        return maxx
+    else:
+        trivered.append(endpoint)
+        for edge in endpoint.edges():
+            ford_fulkerson_rekursive(graph,start, sink, edge, trivered, minn, maxx)
 
-print('Attempting to greate Max flow graph')
 
-flowgraph = FlowGraph()
-s = flowgraph.insert_vertex('s')
-v1 = flowgraph.insert_vertex('v1')
-v2 = flowgraph.insert_vertex('v2')
-v3 = flowgraph.insert_vertex('v3')
-v4 = flowgraph.insert_vertex('v4')
-t = flowgraph.insert_vertex('t')
-flowgraph.insert_edge('s - v1', s, v1, 16)
-flowgraph.insert_edge('s-v2', s, v2, 13)
-flowgraph.insert_edge('v1-v3', v1, v3, 12)
-flowgraph.insert_edge('v2-v4', v2, v4, 14)
-flowgraph.insert_edge('v2-v1', v2, v1, 4)
-flowgraph.insert_edge('v3-v2', v3, v2, 9)
-flowgraph.insert_edge('v4-v3', v4, v3, 7)
-flowgraph.insert_edge('v3-t', v3, t, 20)
-flowgraph.insert_edge('v4-t', v4, t, 4)
 
-print('Flow graph created')
+
