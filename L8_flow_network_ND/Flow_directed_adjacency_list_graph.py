@@ -121,3 +121,22 @@ class FlowGraph:
             if f._endpoint() == v:
                 return False
 
+
+    def print_graph(self, start):
+        printed_v = []
+        queue = []
+        print('v: ' + start.element())
+        printed_v.append(start)
+        for edge in start.edges():
+            queue.append(edge.endpoint())
+        counter = 0
+        while counter < len(queue):
+            current = queue[len(queue)-1]
+            for edge in current:
+                print('Edge capacity:' + edge.capacity() + '. Flow: ' + edge.flow() +
+                      '. Residual: ' + edge.unused_capacity())
+                if edge.endpoint() not in printed_v or edge.endpoint() not in queue:
+                    queue.append(edge.endpoint())
+
+
+

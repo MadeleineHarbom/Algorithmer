@@ -6,17 +6,20 @@ def ford_fulkerson(graph : FlowGraph, start : DiectedVertex, sink: DiectedVertex
     mini = math.inf
     maxx = 0
     triversed = [start] #for at tjekke for cirkler
+    edges = []
+    #triversed kunne tænkes være smart at ha som en stack, da i augmented flow ville en stafck passe perfekt
+    #dog skal triversed også kunne tjekker for cirkler, hvilket ikke kan gøres uder bølv i en stack
     for edge in start.edges():
-        ford_fulkerson_rekursive(graph, start, sink, edge, triversed, mini, maxx)
+        ford_fulkerson_rekursive(graph, start, sink, edge, triversed, mini, maxx, edges)
         #ændre på alt
 
 
 
-def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, maxx):
+def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, maxx, edges):
     endpoint = current_edge.endpoint()
-    if endpoint == start or endpoint in trivered:
+    if endpoint in trivered:
         print('back at start, abort abort abort')
-        return
+        return 0
     else:
         if current_edge.unused_capacity() > maxx:
             maxx = current_edge.unused_capacity()
@@ -25,11 +28,18 @@ def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, m
     if endpoint == sink:
         print('Yay, goooaaaal, go back :D')
         #update
-        return maxx
+        return minn
     else:
         trivered.append(endpoint)
         for edge in endpoint.edges():
-            ford_fulkerson_rekursive(graph,start, sink, edge, trivered, minn, maxx)
+            value = ford_fulkerson_rekursive(graph,start, sink, edge, trivered, minn, maxx)
+            if value is not 0:
+                while len(edges) > 0:
+                    edgie = edges[len(edges)-1]
+                    edgie.add_flow(maxx)
+                    edges.remove(edgie)
+
+            #her skal maxx og min tjekkes
 
 
 

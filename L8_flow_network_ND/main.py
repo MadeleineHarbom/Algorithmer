@@ -1,4 +1,5 @@
 from L8_flow_network_ND.Flow_directed_adjacency_list_graph import *
+from L8_flow_network_ND.maximum_flow_network_ND import ford_fulkerson
 
 print('Attempting to greate Max flow graph')
 
@@ -20,3 +21,4 @@ flowgraph.insert_edge('v3-t', v3, t, 20)
 flowgraph.insert_edge('v4-t', v4, t, 4)
 
 print('Flow graph created')
+
