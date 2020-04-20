@@ -24,7 +24,7 @@ class FlowEdge:
         self._endpoint = endVertex
         self._flow = 0
         self._capacity = capacity
-        startVertex.edges.append(self)
+        startVertex.edges().append(self)
 
 
     def __str__(self):
@@ -74,7 +74,7 @@ class FlowGraph:
     # The element of the edge is o.
     def insert_edge(self, name, startVertex, endVertex, capacity):
         e = FlowEdge(name, startVertex, endVertex, capacity)
-        startVertex.edges.append(e)
+        #startVertex.edges().append(e)
         self._edges.append(e)
         return e
 
@@ -124,19 +124,31 @@ class FlowGraph:
 
     def print_graph(self, start):
         printed_v = []
-        queue = []
+        edge_queue = []
         print('v: ' + start.element())
         printed_v.append(start)
         for edge in start.edges():
-            queue.append(edge.endpoint())
-        counter = 0
-        while counter < len(queue):
-            current = queue[len(queue)-1]
-            for edge in current:
-                print('Edge capacity:' + edge.capacity() + '. Flow: ' + edge.flow() +
-                      '. Residual: ' + edge.unused_capacity())
-                if edge.endpoint() not in printed_v or edge.endpoint() not in queue:
-                    queue.append(edge.endpoint())
+            edge_queue.append(edge)
+
+        for edge in edge_queue:
+            print('test: ' + edge.element())
+
+        while 0 < len(edge_queue):
+            current_edge = edge_queue[0]
+            edge_queue.remove(current_edge)
+            current_vertex = current_edge.endpoint()
+            if current_vertex not in printed_v:
+                print('v: ' + current_vertex.element())
+                printed_v.append(current_vertex)
+                for edge in current_vertex.edges():
+                    print('Edge capacity:' + str(edge.capacity()) + '. Flow: ' + str(edge.flow()) +
+                        '. Residual: ' + str(edge.unused_capacity()))
+                    if edge.endpoint() not in printed_v:
+                        edge_queue.append(edge)
+
+
+
+
 
 
 
