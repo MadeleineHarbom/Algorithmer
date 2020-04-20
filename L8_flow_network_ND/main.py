@@ -23,6 +23,8 @@ flowgraph.insert_edge('v4-t', v4, t, 4)
 print('Flow graph created')
 
 flowgraph.print_graph(s)
+print('About to run')
 ford_fulkerson(flowgraph, s, t)
+print('Done running')
 flowgraph.print_graph(s)
 
