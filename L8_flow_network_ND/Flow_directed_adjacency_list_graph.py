@@ -130,21 +130,18 @@ class FlowGraph:
         for edge in start.edges():
             edge_queue.append(edge)
 
-        for edge in edge_queue:
-            print('test: ' + edge.element())
 
         while 0 < len(edge_queue):
             current_edge = edge_queue[0]
             edge_queue.remove(current_edge)
+            print('Edge :' + current_edge.element() + '. Capacity:' + str(current_edge.capacity()) + '. Flow: ' + str(current_edge.flow()) +
+                  '. Residual: ' + str(current_edge.unused_capacity()))
             current_vertex = current_edge.endpoint()
             if current_vertex not in printed_v:
                 print('v: ' + current_vertex.element())
                 printed_v.append(current_vertex)
                 for edge in current_vertex.edges():
-                    print('Edge capacity:' + str(edge.capacity()) + '. Flow: ' + str(edge.flow()) +
-                        '. Residual: ' + str(edge.unused_capacity()))
-                    if edge.endpoint() not in printed_v:
-                        edge_queue.append(edge)
+                    edge_queue.append(edge)
 
 
 

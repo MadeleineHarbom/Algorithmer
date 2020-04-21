@@ -3,16 +3,22 @@ import math
 from L8_flow_network_ND.Flow_directed_adjacency_list_graph import *
 
 def ford_fulkerson(graph : FlowGraph, start : DiectedVertex, sink: DiectedVertex):
-    mini = 9000 #skal være Math.inf
-    print(mini)
-    #maxx = 0
-    triversed = [start] #for at tjekke for cirkler
-    edges = []
+
+    #triversed = [start] #for at tjekke for cirkler
+    #edges = []
     #triversed kunne tænkes være smart at ha som en stack, da i augmented flow ville en stafck passe perfekt
     #dog skal triversed også kunne tjekker for cirkler, hvilket ikke kan gøres uder bølv i en stack
-    for edge in start.edges():
-        ford_fulkerson_rekursive(graph, start, sink, edge, triversed, mini, edges)
-        #ændre på alt'
+    results = [9]
+    while len(results) > 0:
+        edges = []
+        triversed = [start]
+        results =[]
+        for edge in start.edges():
+            mini = ford_fulkerson_rekursive(graph, start, sink, edge, triversed, 9000, edges)
+            edge.add_flow(mini)
+            if mini != 0:
+                results.append(mini)
+
 
 
 
@@ -24,6 +30,7 @@ def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, e
         print('back at start, abort abort abort')
         return 0
     else:
+        edges.append(current_edge)
         if current_edge.unused_capacity() < minn:
             minn = current_edge.unused_capacity()
     if endpoint == sink:
@@ -34,6 +41,7 @@ def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, e
         for edge in endpoint.edges():
             edges.append(edge)
             value = ford_fulkerson_rekursive(graph, start, sink, edge, trivered, minn, edges)
+            print('element' + edge.element() + ':  ' + str(value))
             if value != 0:
                 edge.add_flow(value)
                 return value
