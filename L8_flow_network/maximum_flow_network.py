@@ -1,6 +1,6 @@
 import math
 
-from L8_flow_network_ND.Flow_directed_adjacency_list_graph import *
+from L8_flow_network.Flow_directed_adjacency_list_graph import *
 
 def ford_fulkerson(graph : FlowGraph, start : DiectedVertex, sink: DiectedVertex):
 
@@ -10,10 +10,12 @@ def ford_fulkerson(graph : FlowGraph, start : DiectedVertex, sink: DiectedVertex
     #dog skal triversed også kunne tjekker for cirkler, hvilket ikke kan gøres uder bølv i en stack
     results = [9]
     while len(results) > 0:
-        edges = []
-        triversed = [start]
+
         results =[]
         for edge in start.edges():
+            triversed = [start]
+            edges = []
+            mini = 900
             mini = ford_fulkerson_rekursive(graph, start, sink, edge, triversed, 9000, edges)
             edge.add_flow(mini)
             if mini != 0:
@@ -43,8 +45,10 @@ def ford_fulkerson_rekursive(graph, start, sink, current_edge, trivered, minn, e
             value = ford_fulkerson_rekursive(graph, start, sink, edge, trivered, minn, edges)
             print('element' + edge.element() + ':  ' + str(value))
             if value != 0:
-                edge.add_flow(value)
-                return value
+                if value < minn:
+                    minn = value
+            edge.add_flow(value)
+        return value
 
 
             #her skal maxx og min tjekkes

@@ -1,5 +1,5 @@
-from L8_flow_network_ND.Flow_directed_adjacency_list_graph import *
-from L8_flow_network_ND.maximum_flow_network_ND import ford_fulkerson
+from L8_flow_network.Flow_directed_adjacency_list_graph import *
+from L8_flow_network.maximum_flow_network import ford_fulkerson
 
 print('Attempting to greate Max flow graph')
 
