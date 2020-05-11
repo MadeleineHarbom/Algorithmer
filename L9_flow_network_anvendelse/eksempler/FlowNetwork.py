@@ -90,13 +90,13 @@ class FlowNetwork:
 
     def find_max_flow(self): 
         while True:
-            p = self.augmenting_path()
-            if p == None:
+            path = self.augmenting_path()
+            if path == None:
                 break
             else:
-                self.augment_flow(p)
+                self.augment_flow(path)
         result = 0
-        for e in self._source.outgoing():
+        for e in self._source.outgoing(): #finder samlet flow
             result += e.flow()
         return result
     
@@ -121,20 +121,23 @@ class FlowNetwork:
         self._residual_edges = []    
   
     def augmenting_path(self):
-        l = [[self._source]]
-        path = [[]]
+        #en slags bredde først søgning
+        #kunne også være depth first, bare en eller andemn graph triversal
+        lists = [[self._source]] #list of lists
+        path = [[]] #list of lists
+        #Det vil være mere hastigheds-effektivt at ha noget på knuderne, i stedet for denne liste
         visited = []
-        i = 0
-        found = False
-        while len(l[i]) > 0 and not found:
-            l.append([])
+        index = 0
+        found = False #hvis sink er fundet endnu
+        while len(lists[index]) > 0 and not found: #kigger listerne i listen gennem
+            lists.append([])
             path.append([])
-            for v in l[i]:
-                for e in v._outgoing:
+            for v in lists[index]:
+                for e in v._outgoing: #Da det er bredth first
                     if e.residual_capacity() > 0 and not e in visited:
                         visited.append(e)
-                        l[i+1].append(e.end())
-                        path[i+1].append(e)
+                        lists[index+1].append(e.end())
+                        path[index+1].append(e)
                         if e.end() == self._sink:
                             found = True
                             break
@@ -142,9 +145,9 @@ class FlowNetwork:
                     break
             if found:
                 break
-            i += 1
+            index += 1
         if found:    
-            return(self.lists_to_path(l, path))
+            return(self.lists_to_path(lists, path))
         else:
             print("no path")
             return None
