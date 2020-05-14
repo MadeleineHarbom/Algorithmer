@@ -1,5 +1,6 @@
 from Obligatorisk_Opgave_1.SplayTree import *
 
+
 leTree = SplayTree()
 
 node11 = Node(11)
@@ -22,6 +23,7 @@ print(str(leTree.access(node12).element))
 print(leTree.root.element)
 print(leTree.remove(node12).element)
 print(leTree.remove(node3).element)
+
 
 
 
