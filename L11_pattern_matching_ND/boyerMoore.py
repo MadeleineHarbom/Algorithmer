@@ -1,4 +1,4 @@
-from L11_pattern_matching.text import *
+from L11_pattern_matching_ND.text import *
 
 def find_boyer_moore(text, pattern):
     t, p = len(text), len(pattern)
@@ -6,7 +6,7 @@ def find_boyer_moore(text, pattern):
         return 0
     last = {}
     for k in range(p):
-        last[pattern[k]] = k #lavet et array med bogstaverne i pattern som key, og k(int) som value
+        last[pattern[k]] = k #lavet et dictionary med bogstaverne i pattern som key, og k(int) som value
     i = p-1
     k = p-1
     while i < t:
@@ -18,11 +18,11 @@ def find_boyer_moore(text, pattern):
                 i -= 1
                 k -= 1 #Her begynder k at ticke ned
         else:
-            j = last.get(text[i], -1) #hvad sker her?
+            j = last.get(text[i], -1) #-1 en er default. Hvis key ikke findes, retuneres default
             i += p - min(k, j + 1)
-            k = p - 1 #sikrer at k er den samme, hvis ikke patern er fundet
+            k = p - 1  #sikrer at k er den samme, hvis ikke patern er fundet
     return -1
 
 
 print(find_boyer_moore(bran, 'morning'))
-print(find_boyer_moore(dna, 'CCTTTTGC'))
+print(find_boyer_moore(dna, dnapattern))

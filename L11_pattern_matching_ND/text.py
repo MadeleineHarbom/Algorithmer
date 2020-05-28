@@ -1,4 +1,5 @@
 dna = 'GCTTCTGCTACCTTTGCGCGCGCGCGGAA'
+dnapattern = 'CCTTTGC'
 
 bran = 'BRAN' \
        'The morning had dawned clear and cold, with a crispness that hinted at the end ofsummer. They set forth at ' \
