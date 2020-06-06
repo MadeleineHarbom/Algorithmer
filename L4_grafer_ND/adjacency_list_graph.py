@@ -11,7 +11,7 @@ class Vertex:
         return str(self._element)
 
     def element(self):
-        return self._element
+            return self._element
 
 
 class Edge:

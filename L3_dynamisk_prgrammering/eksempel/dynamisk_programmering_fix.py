@@ -5,7 +5,11 @@ Created on Tue Feb 18 21:19:10 2020
 @author: jhaj
 """
 
+recusive_counter = 0
+
 def fib_rek(n):
+    global recusive_counter
+    recusive_counter = recusive_counter + 1
     if n == 1 or n == 2:
         return 1
     return fib_rek(n-1) + fib_rek(n-2)
@@ -42,6 +46,8 @@ def cut_rod_rek(prices, n):
 
 prices = [0, 1, 5, 8, 9, 10, 17, 17, 20]
 print(cut_rod_rek(prices, 7))
+print(fib_rek(9))
+print(recusive_counter)
 
 
 

@@ -4,7 +4,7 @@ Dijksta bruges til at finde den korteste path udefra vægten af kanterne
 Dette kræver altså en vægtet graf (en grf hvor hver edge har en numerist label)
 
 Property 1: Hver delstig af den korteste stig, er i sig selv den korteste stig
-Property 2: Der er et træ af korteste stiger fra ven vetrix til alle andre.... todo tjek mig
+    Property 2: Der er et træ af korteste stiger fra ven vetrix til alle andre.... todo tjek mig
 
 Assumptions:
 Grafen er knyttet sammen

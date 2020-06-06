@@ -43,7 +43,7 @@ class Graph:
         self._vertices.remove(v)
     
     #Inserts and returns a new edge between the vertices v and w. 
-    #The element of the edge is o.    
+    #The element of the edge is o.
     def insert_edge(self, o, v, w):
         e = Edge(o, v, w)
         self._edges.append(e)
@@ -125,11 +125,10 @@ class Graph:
             endpoints = next(edgesiterator).endpoints()
             if self.opposite(endpoints[0], endpoints[1]):
                 return True
-
         return False
         
     
-                
+
             
             
         

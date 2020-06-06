@@ -11,7 +11,7 @@ def dfs_helper(graph, vertex, visited):
         print('backing up')
         return
     else:
-        print('new vertex')
+        print('new vertex discovered')
         visited.append(vertex)
         for edge in vertex.edges:
             dfs_helper(graph, graph.opposite(vertex, edge), visited)

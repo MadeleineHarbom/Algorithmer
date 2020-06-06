@@ -35,3 +35,5 @@ def bfs_distance_helper(graph, node, discorvered):
                     discorvered[opposite_vertex] = discorvered[vertex] + edge.element()
                     next_level.append(opposite_vertex)
         level = next_level
+
+

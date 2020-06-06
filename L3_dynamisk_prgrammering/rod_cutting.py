@@ -13,5 +13,5 @@ def cut_rod_rek(prices, n):
     return max_val
 
 cut_rod_rek(prices, 7)
-print(str(cut_rod_rek(prices,7)))
+print(str(cut_rod_rek(prices, 7)))
 

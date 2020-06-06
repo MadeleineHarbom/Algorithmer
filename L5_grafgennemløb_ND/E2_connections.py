@@ -21,7 +21,6 @@ def are_verticies_connected(graph, vertex1, vertex2):
     return are_verticies_connecter_helper(graph, vertex1, vertex2, visited)
 
 
-
 def are_verticies_connecter_helper(graph, vertex2, current, visited):
 
     if current == vertex2:
