@@ -1,11 +1,11 @@
-from Handbold.eksempel.FlowNetwork import *
+from L9_flow_network_anvendelse.eksempler.FlowNetwork import *
 
 handboldnework = FlowNetwork()
 
 o = handboldnework.insert_vertex('Origin', source=True)
 
 kv = handboldnework.insert_vertex('Kolding - Viborg')
-hv =  handboldnework.insert_vertex('Herning - Viborg')
+hv = handboldnework.insert_vertex('Herning - Viborg')
 hk = handboldnework.insert_vertex('Herning - Kolding')
 
 h = handboldnework.insert_vertex('Herning')

@@ -121,10 +121,14 @@ class Graph:
     #Input: Vertex, Vertex; Output: boolean    
     def are_adjacent(self, v, w):
         edgesiterator = self.edges()
-        while next(edgesiterator):
-            endpoints = next(edgesiterator).endpoints()
-            if self.opposite(endpoints[0], endpoints[1]):
+        for edge in edgesiterator:
+            endpoints = edge.endpoints()
+            if self.opposite(endpoints[0], edge):
                 return True
+        # while next(edgesiterator):
+        #     endpoints = next(edgesiterator).endpoints()
+        #     if self.opposite(endpoints[0], endpoints[1]):
+        #         return True
         return False
         
     

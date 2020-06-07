@@ -23,6 +23,8 @@ class Edge:
     def endpoints(self):
         return self._endpoints
 
+
+
 class Graph:
 
     def __init__(self):
@@ -73,6 +75,10 @@ class Graph:
     #Input: nothing; Output: Iterator
     def edges(self):
         return iter(self._edges)
+
+    def sorted_edges(self):
+        self._edges.sort(key=compare)
+        return self._edges
     
     #Returns the degree of the vertex v.
     #Input: Vertex; Output: int
@@ -128,4 +134,6 @@ class Graph:
                 
             
             
-        
+
+def compare(item1):
+    return item1.element()

@@ -3,8 +3,7 @@ from L7_dijkstra_ND.eksempel.edge_list_graph import *
 
 infinity = 1000
 
-#til en edge list graph
-#TODO Hvorfor blev der brugt en en edgelist graph i orginalet?
+
 def dijkstra(g : Graph, s : Vertex):
     Q = AdaptableHeapPriorityQueue()
     dist = {} #dictionary med vertex:distance
