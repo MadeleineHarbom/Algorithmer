@@ -1,4 +1,4 @@
-from L7_dijkstra_ND.eksempel.edge_list_graph import Graph
+from L7_dijkstra_kruskal.eksempel.edge_list_graph import Graph
 
 graph = Graph()
 

@@ -1,5 +1,5 @@
-from L7_dijkstra_ND.eksempel.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
-from L7_dijkstra_ND.eksempel.edge_list_graph import *
+from L7_dijkstra_kruskal.eksempel.adaptable_heap_priority_queue import AdaptableHeapPriorityQueue
+from L7_dijkstra_kruskal.eksempel.edge_list_graph import *
 
 infinity = 1000
 

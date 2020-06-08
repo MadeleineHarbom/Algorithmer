@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from L7_dijkstra_ND.eksempel.heap_priority_queue import HeapPriorityQueue
+from L7_dijkstra_kruskal.eksempel.heap_priority_queue import HeapPriorityQueue
 
 class AdaptableHeapPriorityQueue(HeapPriorityQueue):
   """A locator-based priority queue implemented with a binary heap."""

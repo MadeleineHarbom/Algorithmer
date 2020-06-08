@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from L7_dijkstra_ND.eksempel.priority_queue_base import PriorityQueueBase
+from L7_dijkstra_kruskal.eksempel.priority_queue_base import PriorityQueueBase
 
 
 class HeapPriorityQueue(PriorityQueueBase): # base class defines _Item
