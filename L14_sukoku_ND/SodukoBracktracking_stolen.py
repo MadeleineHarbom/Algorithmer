@@ -92,7 +92,7 @@ def print_pretty(arr):
             print()
         row += 1
 
-print_pretty(a)     
+print_pretty(a)
 
 print("---------------------------------------------")
    

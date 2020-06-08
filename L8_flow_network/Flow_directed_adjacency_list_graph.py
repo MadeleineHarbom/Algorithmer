@@ -18,13 +18,13 @@ class DiectedVertex:
 
 
 class FlowEdge:
-    def __init__(self, e, startVertex, endVertex,capacity):
+    def __init__(self, e, start_vertex, end_vertex, capacity):
         self._element = e
-        self._startpoint = startVertex
-        self._endpoint = endVertex
+        self._startpoint = start_vertex
+        self._endpoint = end_vertex
         self._flow = 0
         self._capacity = capacity
-        startVertex.edges().append(self)
+        start_vertex.edges().append(self)
 
 
     def __str__(self):

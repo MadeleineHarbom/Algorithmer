@@ -37,25 +37,3 @@ dist3 = [
     [72, 52, 31, 43, 65, 29, 46, 31, 51, 23, 59, 11, 62, 0, 59],
     [46, 21, 51, 64, 23, 59, 33, 37, 11, 37, 61, 55, 23, 59, 0]]
 
-import itertools as it
-
-perms = list(it.permutations(range(1, len(dist2))))
-
-paths = []
-for p in perms:
-    l = [0] + list(p) + [0]
-    print(l)
-    paths.append(l)
-
-best_len = float("inf")
-best_path = -1
-    
-for p in paths:
-    counter = 0
-    for i in range(len(p)-1):
-        counter += dist2[p[i]][p[i+1]]
-    if counter < best_len:
-        best_len = counter
-        best_path = p
-
-print(best_len, best_path)

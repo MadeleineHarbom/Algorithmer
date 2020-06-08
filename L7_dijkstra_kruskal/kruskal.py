@@ -28,12 +28,10 @@ class Cluster:
     def make_grp(self, element):
         return self.Position(self, element) #laver en position og sætter self (cluster) som container
 
-
-    def find(self, position): #kig på mig, nok ikke parent, position?
+    def find(self, position):
         if position._parent != position:
-            position._parent = self.find(position._parent) #looper til fanil-parent er funet
+            position._parent = self.find(position._parent)
         return position._parent
-
 
     def union(self, element1, element2):
         a = self.find(element1)
@@ -57,13 +55,11 @@ def kruskal(g : Graph):
     for e in g.edges():
         print(e.element())
         q.add(e.element(), e)
-    clusters = []
     ver = g.vertices()
     num_v = 0
     for ve in ver:
         position[ve] = forest.make_grp(ve)
         num_v += 1
-
 
     minimum_spanning_tree = [] #tree
     while not q.is_empty() and len(minimum_spanning_tree) < num_v:
