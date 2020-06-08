@@ -1,25 +1,8 @@
 from L4_grafer_ND.adjacency_list_graph import Vertex
 mylist = ['M', 'a', 'd', 'e']
 
-i=0
-j=1
+text = 'Madeleine'
+pattern = 'Made'
 
-print(mylist[i:j])
-
-myrange = range(0, len(mylist))
-myrange2 = range(-len(mylist), 0)
-print(myrange)
-for i in myrange:
+for i in range(len(text) - len(pattern) + 1):
     print(i)
-
-for j in myrange:
-    print(-j)
-
-print('test')
-for i in range(0, len(mylist)):
-    templist = []
-    for j in range(i, len(mylist)):
-        templist.append(mylist[j])
-    print(templist)
-
-mystuff = {Vertex(15): 'test'}
