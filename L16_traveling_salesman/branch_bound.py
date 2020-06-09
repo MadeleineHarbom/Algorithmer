@@ -63,7 +63,7 @@ def reduce(matriks):
     return total
 
 
-def set_inf_reduce(matriks, row, col):
+def set_inf(matriks, row, col):
     matriks[col][row] = float('inf')
     for i in range(len(matriks)):
         #print(matriks[i][col])
@@ -84,13 +84,13 @@ def find_travel(matriks):
         key, value = q.remove_min() #går nu den korterste vej
         #remove min returneret (item._key, item._value)
         matrixx, level = value
-        for j in range(len(matrixx[level])): #sikker?
+        for j in range(len(matrixx[level])): #Itererer gennem level (row)
             if matriks[level][j] == float('inf'):
                 continue #j++
             temp_m = matrixx.copy() #ikke ændre på orginal matrix hvis shit går galt
             print('Level (uninfed ' + str(level))
             pretty_print(matrixx)
-            temp_m = set_inf_reduce(temp_m, level, j)
+            temp_m = set_inf(temp_m, level, j)
             print('Level (infed) ' + str(level))
             pretty_print(temp_m)
             reduction = reduce(temp_m)
