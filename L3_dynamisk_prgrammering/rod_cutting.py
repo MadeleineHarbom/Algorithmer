@@ -6,7 +6,7 @@ dynamic_counter = 0
 
 #n er længden af staven, giggedy
 def cut_rod_rek(prices, n):
-    recursive_counter = 0
+    global recursive_counter
     recursive_counter += 1
     if n <= 0:
         return 0
@@ -23,7 +23,8 @@ def cut_rod_dyn(prices, n):
     for i in range(1, n+1): #måske +1
         maxx = 0
         for j in range(i):
-            maxx = max(maxx, prices[j] + values[i -j -1]) #Hvad laver     values[i -j -1]
+            dynamic_counter += 1
+            maxx = max(maxx, prices[j] + values[i -j -1])
         values[i] = maxx
     return values[n]
 
@@ -31,5 +32,7 @@ def cut_rod_dyn(prices, n):
 
 cut_rod_rek(prices, 7)
 print(str(cut_rod_rek(prices, 7)))
+print('recursive: ' + str(recursive_counter))
 print(str(cut_rod_dyn(prices, 7)))
+print('dynamic: ' + str(dynamic_counter))
 
